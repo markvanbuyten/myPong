@@ -21,4 +21,6 @@ private:
 	SDL_Window* mWindow;
 
 	bool mIsRunning;
+
+	SDL_Renderer* mRenderer;
 };

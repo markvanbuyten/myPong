@@ -1,2 +1,5 @@
 ﻿  Game.cpp
+f:\repos\mypong\mypong\game.cpp(43): warning C4353: nonstandard extension used: constant 0 as function expression.  Use '__noop' function intrinsic instead
+  Main.cpp
+  Generating Code...
   myPong.vcxproj -> F:\repos\myPong\x64\Debug\myPong.exe
