@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\myPong",
+    "\\x64"
   ],
+  "SelectedNode": "\\myPong\\Main.cpp",
   "PreviewInSolutionExplorer": false
 }

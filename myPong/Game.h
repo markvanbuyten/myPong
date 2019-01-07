@@ -2,6 +2,12 @@
 
 #include "F:\SDL\include\SDL.h"
 
+struct Vector2
+{
+	float x;
+	float y;
+};
+
 class Game
 {
 public:
@@ -23,4 +29,11 @@ private:
 	bool mIsRunning;
 
 	SDL_Renderer* mRenderer;
+
+	Vector2 mPaddleRightPos, mPaddleLeftPos;
+	Vector2 mBallPos;
+
+	Uint32 mTicksCount;
+
+	int mPaddleLeftDirection, mPaddleRightDirection;
 };
