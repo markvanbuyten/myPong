@@ -32,6 +32,7 @@ private:
 
 	Vector2 mPaddleRightPos, mPaddleLeftPos;
 	Vector2 mBallPos;
+	Vector2 mBallVelocity;
 
 	Uint32 mTicksCount;
 

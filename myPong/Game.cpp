@@ -57,6 +57,9 @@ bool Game::Initialiaze()
 	mPaddleRightPos.x = 999.0f;
 	mPaddleRightPos.y = 768.0f / 2.0f;
 
+	mBallVelocity.x = -200.0f;
+	mBallVelocity.y = 235.0f;
+
 	return true;
 }
 
@@ -159,6 +162,45 @@ void Game::UpdateGame()
 		{
 			mPaddleRightPos.y = 768.0f - pHeight - thickness;
 		}
+	}
+
+	//making the ball move
+	mBallPos.x += mBallVelocity.x * deltaTime;
+	mBallPos.y += mBallVelocity.y * deltaTime;
+
+	//checking if the ball hits the walls
+	if (mBallPos.y <= thickness && mBallVelocity.y < 0.0f)
+	{
+		mBallVelocity.y *= -1;
+	}
+
+	else if (mBallPos.y >= (768.0f - thickness) && mBallVelocity.y > 0.0f)
+	{
+		mBallVelocity.y *= -1;
+	}
+
+	float diffLeft = mPaddleLeftPos.y - mBallPos.y;
+	float diffRight = mPaddleRightPos.y - mBallPos.y;
+
+	//checking if the ball hits the paddles
+	if (
+			(
+				diffLeft <= pHeight / 2.0f &&
+				mBallPos.x <= 25.0f && mBallPos.x >= 20.0f &&
+				mBallVelocity.x < 0.0f
+			) ||
+				(
+					diffRight <= pHeight / 2.0f &&
+					mBallPos.x >= 985.0f && mBallPos.x <= 990.0f &&
+					mBallVelocity.x > 0.0f
+			)
+		)
+	{
+		mBallVelocity.x *= -1.0f;
+	}
+	else if (mBallPos.x <= 0.0f || mBallPos.x >= 1024.0f)
+	{
+		mIsRunning = false;
 	}
 }
 
